@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 from datetime import datetime
@@ -9,7 +11,7 @@ logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     level=logging.INFO
 )
-logger = logging.getLogger(name)
+logger = logging.getLogger(__name__)    
 
 TOKEN = os.environ.get("8603217696:AAH0RUSPelgrrABlXTE-3-VqEQmGE8YZy2c", "")
 
@@ -99,6 +101,7 @@ async def document_in_dm(update, context):
         waiting_photo.pop(user_id, None)
         verified_admins.pop(user_id, None)
         await update.message.reply_text("Фото збережено! Тепер бот буде надсилати його при вітанні нових учасників.")
+
 async def new_member(update, context):
     data = load_data()
     photo_id = data.get("photo")
