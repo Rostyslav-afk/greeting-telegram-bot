@@ -11,7 +11,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(name)
 
-TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+TOKEN = os.environ.get("8603217696:AAH0RUSPelgrrABlXTE-3-VqEQmGE8YZy2c", "")
 
 data_file = "greeting.json"
 
